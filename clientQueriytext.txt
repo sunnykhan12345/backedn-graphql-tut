@@ -1,0 +1,50 @@
+query getAllUsers{
+  users{
+    id
+    firstname
+    lastname
+    email
+    password
+  }
+
+}
+------------------------
+query getalluserbyId{
+  user(id:"23131"){
+    id
+    firstname
+    lastname
+    email
+  }
+}
+-------------------------
+query getallquoats{
+     quoats{
+      name
+      by
+    }
+   
+}
+-----------------------
+query getquoatebyUser{
+  iquoat(by:"23131"){
+    name
+    by
+  }
+}
+---------------------
+query getuserbyId($userid:ID!){
+  user(id:$userid){
+    id
+    firstname
+    lastname
+  email
+  }
+}
+------------------
+query getquoatebyuser($quoate:ID!){
+  iquoat(by:$quoate){
+   name
+    by
+  }
+}
