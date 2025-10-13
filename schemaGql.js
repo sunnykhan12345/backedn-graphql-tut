@@ -18,5 +18,8 @@ const typeDefs = gql`
     name: String
     by: ID
   }
+    type mutation{signupUserDummy(firstname: String!, lastname: String!,email: String!, password: String!):User
+    }
 `;
+
 export default typeDefs;
