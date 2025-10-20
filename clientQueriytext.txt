@@ -48,3 +48,14 @@ query getquoatebyuser($quoate:ID!){
     by
   }
 }
+----------------------
+mutation createUser($userNew:UserInput){
+  user:signupUserDummy(userNew:$userNew){
+     id
+    email
+    firstName
+    lastName
+    
+  }
+
+}
