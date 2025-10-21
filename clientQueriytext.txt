@@ -1,6 +1,6 @@
 query getAllUsers{
   users{
-    id
+    _id
     firstname
     lastname
     email
@@ -10,8 +10,8 @@ query getAllUsers{
 }
 ------------------------
 query getalluserbyId{
-  user(id:"23131"){
-    id
+  user(_id:"23131"){
+    _id
     firstname
     lastname
     email
@@ -34,8 +34,8 @@ query getquoatebyUser{
 }
 ---------------------
 query getuserbyId($userid:ID!){
-  user(id:$userid){
-    id
+  user(_id:$userid){
+    _id
     firstname
     lastname
   email
@@ -51,7 +51,7 @@ query getquoatebyuser($quoate:ID!){
 ----------------------
 mutation createUser($userNew:UserInput){
   user:signupUserDummy(userNew:$userNew){
-     id
+     _id
     email
     firstName
     lastName

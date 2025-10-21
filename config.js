@@ -1,0 +1,1 @@
+export const MONGODB_URI ="mongodb+srv://sunny:12345@cluster0.dcmfbw7.mongodb.net/graphqldb?retryWrites=true&w=majority&appName=Cluster0"
