@@ -1,6 +1,8 @@
+import { JWT_SECRET } from "./config.js";
 import { users, quoats } from "./Fakedb.js";
 import User from "./models/User.js";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken"
 const resolvers = {
   Query: {
     users: () => users,
@@ -23,7 +25,19 @@ const resolvers = {
         ...userNew,
         password: hashedPassword,
       });
-     return await newuser.save()
+      return await newuser.save();
+    },
+    signinUser: async (_, { userSignin }) => {
+     const user = await User.findOne({email:userSignin.email})
+     if(!user){
+      throw new Error("User dosent exist with that email!")
+     }
+     const doMatch =  await bcrypt.compare(userSignin.password,user.password)
+        if (!doMatch) {
+          throw new Error("email or password invalid");
+        }
+       const token =  jwt.sign({userId:user._id},JWT_SECRET)
+       return {token}
     },
   },
 };

@@ -8,7 +8,7 @@ const typeDefs = gql`
   }
   type User {
     _id: ID!
-    firstName:String!
+    firstName: String!
     lastName: String!
     email: String!
     password: String!
@@ -18,12 +18,20 @@ const typeDefs = gql`
     name: String
     by: ID
   }
+  type Token {
+    token: String!
+  }
   type Mutation {
     signupUserDummy(userNew: UserInput): User
+    signinUser(userSignin: UserSigninInput): Token
   }
   input UserInput {
     firstName: String!
     lastName: String!
+    email: String!
+    password: String!
+  }
+  input UserSigninInput {
     email: String!
     password: String!
   }
